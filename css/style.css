@@ -1,0 +1,315 @@
+body {
+font-family: Verdana, Geneva, Tahoma, sans-serif;  
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: #6f42c1; /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+#myHeader {
+  height: 130vh;
+  background: url('../images/gallery1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.advert {
+  font-size: 10px;
+}
+
+#advert2{
+  display: none;
+}
+
+#getStarted {
+  height: 50vh;
+  background: url('../images/started.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+}
+
+
+
+#myBtn1 {
+  padding: 10px 25px 15px 25px; 
+  background-image:linear-gradient(200deg,  #d26000 0% 100%);
+  color: white;
+  border: none;
+  font-weight: bold;
+  
+}
+
+.navbar {
+  background-color: #6f42c1 !important;
+  padding: 20px;
+  height: 70px;
+}
+
+.navbar-brand {
+  color: white !important;
+  margin-left: 10px;
+}
+
+ul li a{
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.logo {
+  width: 400px;
+}
+
+.sideImage {
+  margin-top: 80px;
+}
+
+.firstHeader {
+  margin-top: 160px;
+  color: white;
+}
+
+.impact {
+  font-size: 18px;
+  font-family: inherit;
+  margin-left: 25px;
+  font-weight: bold;
+  color: white;
+}
+
+#interaction {
+  background: url('../images/graphic-7.jpg');
+  padding-top: 70px;
+}
+
+.firstParagraph {
+  color:white;
+}
+
+.raveSpan  {
+  color: #6f42c1;
+}
+
+.secondHeader {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+#ourConnects {
+  background: url('../images/faq.jpg');
+  padding-top: 80px;
+}
+
+.thirdtHeader {
+  margin-top: 80px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+info-blocks {margin-bottom: 15px;/* background: #efefef; */}
+  .info-blocks i.icon-info-blocks {float: left;color: #00001a;font-size: 30px;min-width: 50px;margin-top: 7px;text-align: center;background: white; width: 72px;height: 72px;padding-top: 21px;border: 1px solid white; border-radius: 50%;}
+	.info-blocks .info-blocks-in {padding: 0 10px;overflow: hidden;}
+	.info-blocks .info-blocks-in h3 {color: #00001a;font-size: 18px;line-height: 28px;margin:0px;margin-bottom: 8px;font-family: 'Montserrat', sans-serif;font-weight: 600;}
+	.info-blocks .info-blocks-in p {font-size: 14px;}
+
+#myBtn {
+  padding: 10px 25px 15px 25px; 
+  background-image:linear-gradient(200deg,  #6f42c1 0% 100%);
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+#myBtn1 {
+  padding: 10px 25px 15px 25px; 
+  background-image:linear-gradient(200deg,  #fff 0% 100%);
+  color: black;
+  border: none;
+  font-weight: bold;
+}
+
+.floatButton {
+  float:right;
+}
+
+.placeAdsImg {
+  position: relative; /* Declared position allows for location changes */
+  top: -150px; /* Moves the image 2px closer to the top of the page */
+}
+
+#placeAds {
+  background: #6f42c1;
+  padding-top: 150px;
+  
+}
+
+.goal {
+  color: #00001a;
+  font-weight: bold;
+}
+
+.fourthHeader {
+  color: white;
+}
+
+.fourthParagraph {
+  color:white;
+}
+
+.fifthHeader {
+  margin-top: 80px;
+}
+
+.sixthHeader {
+  text-align: center;
+}
+
+.sixthParagraph {
+  text-align: center;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  width: 100%;
+  height: 85vh;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.testimonial4_slide img {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 136px;
+  height: 136px;
+  margin: auto;
+  display: block;
+  color: #f2f2f2;
+  font-size: 18px;
+  line-height: 46px;
+  text-align: center;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.testimonials_slide img {
+  background-color: #00001a;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 136px;
+  height: 136px;
+  margin: auto;
+  display: block;
+  color: #f2f2f2;
+  font-size: 18px;
+  line-height: 46px;
+  text-align: center;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+nav {
+  display: none !important;
+}
+
+.logo {
+  width: 100%;
+}
+
+#advert2{
+  display: block;
+}
+
+#myHeader {
+  height: 160vh;
+  background: url('../images/gallery1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*border-bottom-right-radius: 80px 80px; */
+}
+
+.firstHeader {
+  margin-top: 100px;
+  color: white;
+}
+
+.placeAdsImg {
+  position: relative; /* Declared position allows for location changes */
+  top: -50px; /* Moves the image 2px closer to the top of the page */
+}
+
+#placeAds {
+  background: #6f42c1;
+  padding-top: 50px;
+  
+}
+
+}
