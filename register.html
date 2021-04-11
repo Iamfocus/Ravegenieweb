@@ -126,7 +126,7 @@ select.form-control {
 
         <!-- Registeration Form -->
         <div class="col-md-7 col-lg-6 ml-auto">
-            <form action="#">
+            <form id="register">
                 <div class="row">
 
                     <!-- First Name -->
@@ -136,7 +136,11 @@ select.form-control {
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                        <input 
+                            id="firstName" type="text" name="firstname" 
+                            placeholder="First Name" required
+                            class="form-control bg-white border-left-0 border-md"
+                        >
                     </div>
 
                     <!-- Last Name -->
@@ -146,7 +150,11 @@ select.form-control {
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                        <input 
+                            id="lastName" type="text" required
+                            name="lastname" placeholder="Last Name" 
+                            class="form-control bg-white border-left-0 border-md"
+                        >
                     </div>
 
                     <!-- Email Address -->
@@ -156,18 +164,12 @@ select.form-control {
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
-                    </div>
-
-                    <!-- Phone Number -->
-                    <div class="input-group col-lg-12 mb-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                <i class="fa fa-phone-square text-muted"></i>
-                            </span>
-                        </div>
-                        
-                        <input id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                        <input 
+                            id="email" required
+                            type="email" name="email"
+                            placeholder="Email Address" 
+                            class="form-control bg-white border-left-0 border-md"
+                        >
                     </div>
 
                     <!-- Password -->
@@ -177,7 +179,14 @@ select.form-control {
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                        <input 
+                            id="password" type="password" required
+                            name="password" placeholder="Password" 
+                            class="form-control bg-white border-left-0 border-md"
+                        >
+                        <div class="invalid-feedback">
+                            Password and its confirmation must match
+                        </div>
                     </div>
 
                     <!-- Password Confirmation -->
@@ -187,14 +196,19 @@ select.form-control {
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
+                        <input 
+                            id="passwordConfirmation" type="password" 
+                            name="passwordConfirmation" required
+                            placeholder="Confirm Password" 
+                            class="form-control bg-white border-left-0 border-md"
+                        >
                     </div>
 
                     <!-- Submit Button -->
                     <div class="form-group col-lg-12 mx-auto mb-0">
-                        <a href="#" class="btn btn-primary btn-block py-2">
+                        <button type="submit" class="submitbtn btn btn-primary btn-block py-2">
                             <span class="font-weight-bold">Create your account</span>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Divider Text -->
@@ -217,39 +231,18 @@ select.form-control {
     </div>
 </div>
 
-      <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript" src="js/talkland.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
 
-  <!-- Initializations -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script>
-        AOS.init({
-          offset: 240
-          
-        });
-      </script>
-  <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
-
-  </script>
-
-<script>
-  jQuery('.statistic-counter').counterUp({
-          
-          
-        });
-  </script>
 
 <script>
 
