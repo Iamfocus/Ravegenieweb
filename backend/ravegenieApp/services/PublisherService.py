@@ -10,7 +10,9 @@ class PublisherService:
 		publisher = subscription.publisher
 		if publisher.first_referral_paid:
 			return
-		referee_publisher = publisher.user.referee.publisher
+		referee_publisher = publisher.get_referee
+		if not referee_publisher:
+			return
 		bonus_amount = self.transaction_service.get_bonus_discounted_amount(
 			settings.PUBLISHER_REF_BONUS, 
 			subscription.principal

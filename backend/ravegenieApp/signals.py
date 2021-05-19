@@ -6,7 +6,7 @@ PromoSubscribed = Signal(providing_args=['subscription'])
 ExclusiveSubscribed = Signal(providing_args=['business'])
 
 
-from AccountsApp.signals import signed_up
+from AccountsApp.signals import SignedUp
 from django.contrib.auth import get_user_model
 from django.http import HttpRequest
 from .models import CampaignSub, Transaction, Campaign, Promotion, Notification
@@ -80,7 +80,7 @@ def deposit_handler(sender, **kwargs):
 @receiver(CampaignSubscribed)
 def campaign_subscription_handler(sender, **kwargs):
 	subscription: CampaignSub = kwargs['subscription']
-	tasks.campaign_subscribed.delay(subscription)
+	tasks.campaign_subscribed.delay(subscription.id)
 
 @receiver(PromoSubscribed)
 def promo_subscription_handler(sender, **kwargs):
@@ -88,7 +88,7 @@ def promo_subscription_handler(sender, **kwargs):
 	publisher_service = PublisherService()
 	Thread(publisher_service.compensate_promoter_referees, args=[subscription] ).start()
 
-@receiver(signed_up)
+@receiver(SignedUp)
 def sign_up_handler(sender, **kwargs):
 	user: User = kwargs['user']
 	request: HttpRequest = kwargs['request']

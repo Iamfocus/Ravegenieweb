@@ -19,12 +19,14 @@ class CampaignService:
 		principal = data['principal']
 		with transaction.atomic():	
 			self.transaction_service.transact_subscription(publisher, principal)
-			subscription = CampaignSub.objects.create(**data)
+			subscription = CampaignSub.objects.create(
+				principal=data['principal'], campaign_type=data['type'], publisher=publisher)
+			print('befre signals')
 			CampaignSubscribed.send(sender=self.__class__, subscription=subscription)
 			return subscription
 
 	def create_campaign(self, business, end_date, cost, ad_image, ad, campaign_type):
-		if  business.is_exclusive() and business.exclusive_spots_used < settings.CAMPAIGNS_PER_EXCLUSIVE_SUB:
+		if business.is_exclusive() and business.exclusive_spots_used < settings.CAMPAIGNS_PER_EXCLUSIVE_SUB:
 			business.exclusive_spots_used += 1
 		else:
 			self.transaction_service.transact_subscription(business, cost)

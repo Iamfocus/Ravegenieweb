@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from django.views.generic import TemplateView
-from django.views.decorators.csrf import ensure_csrf_cookie
-
-front_page_view = ensure_csrf_cookie(
-    TemplateView.as_view(template_name="ravegenieApp/index.html" )
-    )
+# from django.views.generic import TemplateView
+# from django.views.decorators.csrf import ensure_csrf_cookie
+#
+# front_page_view = ensure_csrf_cookie(
+#     TemplateView.as_view(template_name="ravegenieApp/index.html" )
+#     )
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("AccountsApp.urls")),
     path('', include("ravegenieApp.urls")),
-    re_path(r"^.*$", front_page_view)
+    # re_path(r"^.*$", front_page_view)
 ]

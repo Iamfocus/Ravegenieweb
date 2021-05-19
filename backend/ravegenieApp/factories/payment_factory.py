@@ -2,7 +2,7 @@ from ..services import FlutterPaymentService
 from ..exceptions import PaymentException
 
 class PaymentFactory:
-	AVAILABE_SERVICES = {
+	AVAILABLE_SERVICES = {
 		'FLUTTER': FlutterPaymentService,
 	}
 	@classmethod
@@ -10,7 +10,7 @@ class PaymentFactory:
 		service_name = service_name.upper()
 		available_services = cls.AVAILABLE_SERVICES
 		try:
-			service = available_services['service_name']
+			service = available_services[service_name]
 		except KeyError:
 			raise PaymentException
 		return service

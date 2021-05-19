@@ -60,7 +60,13 @@ class Publisher(models.Model, ModelMixin):
 			if sub.is_active() and sub.campaign_type == campaign_type:
 				return True
 		return False
-							
+
+	@property
+	def get_referee(self):
+		referee = self.user.referee
+		if referee and not referee.user.business:
+			return referee
+		return False
 
 	def has_promo_sub(self):
 		try:
