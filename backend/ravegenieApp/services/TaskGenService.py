@@ -22,7 +22,7 @@ class TaskGenService:
 		self.gen_sub_to_all()
 
 	def _publisher_is_eligible(self):
-		return self.subscription.type != CampaignSub.MINIMUM_SUB
+		return self.subscription.campaign_type != CampaignSub.MINIMUM_SUB
 
 	def gen_first_ref_task(self):
 		if not self.publisher.first_referral_recieved:
@@ -33,17 +33,17 @@ class TaskGenService:
 			)
 	
 	def gen_ref_on_sub_day_task(self):
-		task = Task.objects.get_or_create(
+		task, created = Task.objects.get_or_create(
 			type=Task.REF_ON_SUB_DAY,
 			publisher=self.publisher,
 			defaults={'start_date': self.start_date}
 		)
-		end_date = task.start_date + timedelta(1)
+		end_date = self.start_date + timedelta(1)
 		task.end_date = end_date
 		task.save()
 
 	def gen_ref_on_withdraw_day(self):
-		task = Task.objects.get_or_create(
+		task, created = Task.objects.get_or_create(
 			type=Task.REF_ON_WDRW_DAY,
 			publisher=self.publisher,
 			defaults={'start_date': self.start_date}
@@ -73,7 +73,7 @@ class TaskGenService:
 			self._gen_monthly_task(Task.FIRST_SUB_TO_ALL)
 
 	def _gen_monthly_task(self, type_signature):
-		task = Task.objects.get_or_create(
+		task, created = Task.objects.get_or_create(
 			type=type_signature,
 			publisher=self.publisher,
 			defaults={'start_date': self.start_date}

@@ -7,10 +7,10 @@ import json
 class TaskCheckService:
 	def __init__(self, subscription):
 		self.publisher = subscription.publisher
-		parent = publisher.user.referee
+		parent = self.publisher.user.referee
 		self.parent_publisher = parent.publisher
-		self.publisher_tasks = self.get_tasks(publisher)
-		self.parent_tasks = self.get_tasks(parent_publisher)
+		self.publisher_tasks = self.get_tasks(self.publisher)
+		self.parent_tasks = self.get_tasks(self.parent_publisher)
 		self.subscription = subscription
 
 	def check(self): 

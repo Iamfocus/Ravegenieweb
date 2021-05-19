@@ -28,9 +28,9 @@ class TransactionController(Controller):
 			comment=service_name,
 			dollar_amount=deposit_form.cleaned_data['amount']
 		)
-		try:  
+		try:
 			gateway_url = payment_service.get_payment_provider().init_payment(
-				amount=transaction.naira_amount,
+				amount=str(transaction.naira_amount),
 				currency=settings.CURRENCY,
 				customer_email=request.user.email,
 				txref=txref
@@ -47,7 +47,7 @@ class TransactionController(Controller):
 	@Controller.decorate(api_view(['GET']), ensure_signed_in)
 	def ping(self, request):
 		transactions = request.user.transactions.all()
-		transaction_details = [transaction.get_dict for transaction in transactions]
+		transaction_details = [transaction.get_dict() for transaction in transactions]
 		profile = request.user.get_profile()
 		account_balance = profile.account_balance
 		bonus_balance = profile.bonus_balance
@@ -62,7 +62,7 @@ class TransactionController(Controller):
 	@Controller.decorate(ensure_signed_in)
 	def redeem_bonus(self, request):
 		publisher = request.user.publisher
-		self.transaction_service.redeeem_bonus(publisher)
+		self.transaction_service.redeem_bonus(publisher)
 		return json_response(True)
 	
 	@Controller.route()

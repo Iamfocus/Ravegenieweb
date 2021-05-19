@@ -29,7 +29,7 @@ class PublisherController(Controller):
 	@Controller.decorate(api_view(['GET']), ensure_signed_in)
 	def get_campaign_subscriptions(self, request):
 		publisher = request.user.publisher
-		if not publisher.has_campaign_subs():
+		if not publisher.has_campaign_sub():
 			return json_response(status=False, error='You have no active campaign subscriptions')	
 		sub = [sub.get_dict() for sub in publisher.campaign_subs.all() ]
 		return json_response(status=True, data=sub)
